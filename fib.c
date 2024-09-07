@@ -31,19 +31,13 @@ int fibbonachiItera(int n){
    
 }
 
-
-int main()
-{
+int FileLogic(char* TextFile[100]){
    FILE *fpointer;
-   int num1;
    int fileNum;
-   char nameOfTextFile[100];
-   char recursiveOrIterative;
 
-   scanf("%d", "%c", "%c", &num1, &recursiveOrIterative, &nameOfTextFile[100]);
-
-
-   fpointer = fopen(&nameOfTextFile, 100, "w");
+   char temp = TextFile[100];
+   
+   fpointer = fopen(&temp, 100, "w");
    scanf("%d", fileNum);
    fprintf(fpointer, fileNum);
    fclose(fpointer);
@@ -55,7 +49,19 @@ int main()
 
    fileNum = atoi(FileNumHolder);
 
-   int nthNum = num1 + fileNum;
+   return fileNum;
+}
+
+int main()
+{
+   int num1;
+   char nameOfTextFile[100];
+   char recursiveOrIterative;
+
+   scanf("%d", "%c", "%c", &num1, &recursiveOrIterative, &nameOfTextFile[100]);
+
+   int theFileNumber = FileLogic(&nameOfTextFile);
+   int nthNum = num1 + theFileNumber;
    int FibbonachiNum;
   
    if(recursiveOrIterative == "i"){
