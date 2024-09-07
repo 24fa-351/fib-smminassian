@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <math.h>
+#include <stdlib.h>
 
-int fibbonaciRecurs(int num)
+int fibbonachiRecurs(int num)
 {
    if (num == 0 || num == 1)
    {
@@ -9,7 +9,7 @@ int fibbonaciRecurs(int num)
    }
    else
    {
-      return fibbonaci(num - 1) + fibbonaci(num - 2);
+      return fibbonachiRecurs(num - 1) + fibbonachiRecurs(num - 2);
    }
 }
 
@@ -34,12 +34,13 @@ int fibbonachiItera(int n){
 int FileLogic(char* TextFile[100]){
    FILE *fpointer;
    int fileNum;
+   int* fileNumPtr = fileNum;
 
-   char temp = TextFile[100];
+   char *temp = TextFile[100];
    
-   fpointer = fopen(&temp, 100, "w");
-   scanf("%d", fileNum);
-   fprintf(fpointer, fileNum);
+   fpointer = fopen(temp, "w");
+   scanf("%d", fileNumPtr);
+   fprintf(fpointer, fileNumPtr);
    fclose(fpointer);
 
    fpointer = fopen("test.txt", "r");
@@ -55,7 +56,7 @@ int FileLogic(char* TextFile[100]){
 int main()
 {
    int num1;
-   char nameOfTextFile[100];
+   char nameOfTextFile[1000];
    char recursiveOrIterative;
 
    scanf("%d", "%c", "%c", &num1, &recursiveOrIterative, &nameOfTextFile[100]);
@@ -65,10 +66,10 @@ int main()
    int FibbonachiNum;
   
    if(recursiveOrIterative == "i"){
-     FibbonachiNum = fibbonaciItera(nthNum);
+     FibbonachiNum = fibbonachiItera(nthNum);
    } 
    else{
-     FibbonachiNum = fibbonaciRecurs(nthNum);
+     FibbonachiNum = fibbonachiRecurs(nthNum);
    }
 
    printf("The %dth of the fibbonachi series is %d", &nthNum, &FibbonachiNum);
