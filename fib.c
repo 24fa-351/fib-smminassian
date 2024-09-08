@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int fibbonachiRecurs(int num)
 {
@@ -19,7 +20,7 @@ int fibbonachiItera(int n){
    int num3;
    for(int i = 2; i <= n; i++){
       if(n != 0){
-         num3 = num1+num2;
+         num3 = num1 + num2;
          num1 = num2;
          num2 = num3;
       }
@@ -31,48 +32,41 @@ int fibbonachiItera(int n){
    
 }
 
-int FileLogic(char* TextFile[100]){
-   FILE *fpointer;
-   int fileNum;
-   int* fileNumPtr = fileNum;
-
-   char *temp = TextFile[100];
-   
-   fpointer = fopen(temp, "w");
-   scanf("%d", fileNumPtr);
-   fprintf(fpointer, fileNumPtr);
-   fclose(fpointer);
-
-   fpointer = fopen("test.txt", "r");
-   char FileNumHolder[100];
-   fgets(FileNumHolder, 100, fpointer);
-   fclose(fpointer);
-
-   fileNum = atoi(FileNumHolder);
-
-   return fileNum;
-}
-
 int main()
 {
    int num1;
-   char nameOfTextFile[1000];
+   char nameOfTextFile[100];
    char recursiveOrIterative;
 
-   scanf("%d", "%c", "%c", &num1, &recursiveOrIterative, &nameOfTextFile[100]);
+   scanf("%d %c %c", &num1, &recursiveOrIterative, &nameOfTextFile[100]);
 
-   int theFileNumber = FileLogic(&nameOfTextFile);
-   int nthNum = num1 + theFileNumber;
+
+   FILE *fpointer;
+   char fileNum = '3';
+
+   fpointer = fopen(nameOfTextFile, "w");
+   fputs(fileNum, fpointer);
+   fclose(fpointer);
+
+   fpointer = fopen(nameOfTextFile, "r");
+   fgets(fileNum, 50, fpointer);
+
+   scanf(fileNum, 100, fpointer);
+   fclose(fpointer);
+
+   int integerFileNum = atoi(fileNum);
+
+   int nthNum = num1 + integerFileNum;
    int FibbonachiNum;
   
-   if(recursiveOrIterative == "i"){
+   if(recursiveOrIterative == 'i'){
      FibbonachiNum = fibbonachiItera(nthNum);
    } 
-   else{
+   else if(recursiveOrIterative == 'r'){
      FibbonachiNum = fibbonachiRecurs(nthNum);
    }
 
-   printf("The %dth of the fibbonachi series is %d", &nthNum, &FibbonachiNum);
+   printf("The %dth of the fibbonachi series is %d", nthNum, FibbonachiNum);
 
    return 0;
 
