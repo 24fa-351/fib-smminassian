@@ -38,20 +38,24 @@ int main()
    char nameOfTextFile[100];
    char recursiveOrIterative;
 
-   scanf("%d %c %c", &num1, &recursiveOrIterative, nameOfTextFile);
+   scanf("%d %c %s", &num1, &recursiveOrIterative, nameOfTextFile);
 
 
    FILE *fpointer;
-   char fileNum[30];
+   int fileNum = 0;
 
-   fpointer = fopen(nameOfTextFile, "r");      //my error is between line 45 to 51. I know I am getting a seg fault, its just If i get rid of the array in fileNum and i make test, my code complains by saying 
-                                                //"format ‘%c’ expects argument of type ‘char *’, but argument 4 has type ‘char (*)[100]’". Other than the seg fault I dont know why it does not work. I wiill get my debugger working and debug this tomorrow.
-   fscanf(fpointer, "%c", fileNum);
+   fpointer = fopen(nameOfTextFile, "w");
+   fprintf(fpointer, "90"); 
    fclose(fpointer);
 
-   int integerFileNum = atoi(fileNum);
+   
 
-   int nthNum = num1 + integerFileNum;
+
+   fpointer = fopen(nameOfTextFile, "r");
+   fscanf(fpointer, "%ld", &fileNum);
+   fclose(fpointer);
+
+   int nthNum = num1 + fileNum;
    int FibbonachiNum;
   
    if(recursiveOrIterative == 'i'){
@@ -61,7 +65,7 @@ int main()
      FibbonachiNum = fibbonachiRecurs(nthNum);
    }
 
-   printf("%d",FibbonachiNum);
+    printf("The %dth of the fibbonachi series is %d", nthNum, FibbonachiNum);
 
    return 0;
 
