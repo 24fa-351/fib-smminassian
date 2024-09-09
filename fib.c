@@ -14,22 +14,25 @@ int fibbonachiRecurs(int num)
    }
 }
 
-int fibbonachiItera(int n){
+int fibbonachiItera(int n)
+{
    int num1 = 0;
    int num2 = 1;
    int num3;
-   for(int i = 2; i <= n; i++){
-      if(n != 0){
+   for (int i = 2; i <= n; i++)
+   {
+      if (n != 0)
+      {
          num3 = num1 + num2;
          num1 = num2;
          num2 = num3;
       }
-      else{
+      else
+      {
          return num1;
       }
    }
    return num3;
-   
 }
 
 int main()
@@ -40,16 +43,12 @@ int main()
 
    scanf("%d %c %s", &num1, &recursiveOrIterative, nameOfTextFile);
 
-
    FILE *fpointer;
    int fileNum = 0;
 
    fpointer = fopen(nameOfTextFile, "w");
-   fprintf(fpointer, "90"); 
+   fprintf(fpointer, "90");
    fclose(fpointer);
-
-   
-
 
    fpointer = fopen(nameOfTextFile, "r");
    fscanf(fpointer, "%d", &fileNum);
@@ -57,16 +56,17 @@ int main()
 
    int nthNum = num1 + fileNum;
    int FibbonachiNum;
-  
-   if(recursiveOrIterative == 'i'){
-     FibbonachiNum = fibbonachiItera(nthNum);
-   } 
-   else if(recursiveOrIterative == 'r'){
-     FibbonachiNum = fibbonachiRecurs(nthNum);
+
+   if (recursiveOrIterative == 'i')
+   {
+      FibbonachiNum = fibbonachiItera(nthNum);
+   }
+   else if (recursiveOrIterative == 'r')
+   {
+      FibbonachiNum = fibbonachiRecurs(nthNum);
    }
 
-    printf("The %dth of the fibbonachi series is %d", nthNum, FibbonachiNum);
+   printf("The %dth of the fibbonachi series is %d", nthNum, FibbonachiNum);
 
    return 0;
-
 }
