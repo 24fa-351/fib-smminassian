@@ -52,7 +52,7 @@ int main()
 
 
    fpointer = fopen(nameOfTextFile, "r");
-   fscanf(fpointer, "%ld", &fileNum);
+   fscanf(fpointer, "%d", &fileNum);
    fclose(fpointer);
 
    int nthNum = num1 + fileNum;
