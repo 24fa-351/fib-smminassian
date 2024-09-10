@@ -42,16 +42,10 @@ int main()
    char nameOfTextFile[20];
    char recursiveOrIterative[2];
 
-   scanf("%d", &num1);
-   scanf("%s", recursiveOrIterative);
-   scanf("%s", nameOfTextFile);
+   scanf("%d %s %s", &num1, recursiveOrIterative, nameOfTextFile);
 
    FILE *fpointer;
    int fileNum;
-
-   fpointer = fopen(nameOfTextFile, "w");
-   fprintf(fpointer, "1");
-   fclose(fpointer);
 
    fpointer = fopen(nameOfTextFile, "r");
    fscanf(fpointer, "%d", &fileNum);
@@ -60,11 +54,11 @@ int main()
    int nthNum = num1 + fileNum;
    int FibbonachiNum;
 
-   if (*recursiveOrIterative == 'L')
+   if (*recursiveOrIterative == 'i')
    {
       FibbonachiNum = fibbonachiItera(nthNum);
    }
-   else if (*recursiveOrIterative == 'T')
+   else if (*recursiveOrIterative == 'r')
    {
       FibbonachiNum = fibbonachiRecurs(nthNum);
    }
