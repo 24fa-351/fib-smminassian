@@ -35,35 +35,33 @@ int fibbonachiItera(int n)
    return num3;
 }
 
-int main()
+int main(int __argc, char __argv[])
 {
-   int num1;
-   char nameOfTextFile[20];
-   char recursiveOrIterative[2];
-
-   scanf("%d %s %s", &num1, recursiveOrIterative, nameOfTextFile);
-
    FILE *fpointer;
-   int fileNum;
+   int fileNum = 0;
+   char nameOfTextFile[20];
+   int nthNum;
+   int fibbonachiNum = 0;
+
+   strcpy(nameOfTextFile, __argv);
 
    fpointer = fopen(nameOfTextFile, "r");
    fscanf(fpointer, "%d", &fileNum);
    fclose(fpointer);
 
-   int nthNum = num1 + fileNum;
-   int FibbonachiNum;
+   int num1 = atoi(__argv[1]);
+   nthNum = num1 + fileNum;
 
-   if (*recursiveOrIterative == 'i')
+   if (__argv[2] == 'i')
    {
-      FibbonachiNum = fibbonachiItera(nthNum-1);
+      fibbonachiNum = fibbonachiItera(nthNum - 1);
    }
-   else if (*recursiveOrIterative == 'r')
+   else if (__argv[2] == 'r')
    {
-      FibbonachiNum = fibbonachiRecurs(nthNum-1);
+      fibbonachiNum = fibbonachiRecurs(nthNum - 1);
    }
 
-   printf("%d", FibbonachiNum);
+   printf(" %dth %d", nthNum, fibbonachiNum);
 
    return 0;
 }
-
