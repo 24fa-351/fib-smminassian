@@ -35,30 +35,33 @@ int fibbonachiItera(int n)
    return num3;
 }
 
-int main(int __argc, char __argv[])
+int main(int __argc, char *__argv[])
 {
+   int i;
    FILE *fpointer;
    int fileNum = 0;
    char nameOfTextFile[20];
-   int nthNum;
+   int nthNum = 0;
    int fibbonachiNum = 0;
-
-   strcpy(nameOfTextFile, __argv);
-
-   fpointer = fopen(nameOfTextFile, "r");
-   fscanf(fpointer, "%d", &fileNum);
-   fclose(fpointer);
-
-   int num1 = atoi(__argv[1]);
-   nthNum = num1 + fileNum;
-
-   if (__argv[2] == 'i')
+   int num1 = 0;
+   
+   if (__argc == 4)
    {
-      fibbonachiNum = fibbonachiItera(nthNum - 1);
-   }
-   else if (__argv[2] == 'r')
-   {
-      fibbonachiNum = fibbonachiRecurs(nthNum - 1);
+      fpointer = fopen(__argv[3], "r");
+      fscanf(fpointer, "%d", &fileNum);
+      fclose(fpointer);
+   
+      num1 = atoi(__argv[1]);
+      nthNum = num1 + fileNum;
+
+      if (*__argv[2] == 'i')
+      {
+         fibbonachiNum = fibbonachiItera(nthNum - 1);
+      }
+      else if (*__argv[2] == 'r')
+      {
+         fibbonachiNum = fibbonachiRecurs(nthNum - 1);
+      }
    }
 
    printf(" %dth %d", nthNum, fibbonachiNum);
