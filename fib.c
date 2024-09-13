@@ -64,7 +64,7 @@ int main(int __argc, char *__argv[])
       }
    }
 
-   printf(" %dth %d", nthNum, fibbonachiNum);
+   printf("%d", fibbonachiNum);
 
    return 0;
 }
