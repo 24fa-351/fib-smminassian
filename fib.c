@@ -37,16 +37,15 @@ int fibbonachiItera(int n)
 
 int main(int __argc, char *__argv[])
 {
-   int i;
    FILE *filePointer;
    int fileNum = 0;
-   char nameOfTextFile[20];
    int nthNum = 0;
    int fibbonachiNum = 0;
    int num1 = 0;
 
    if (__argc == 4)
    {
+
       filePointer = fopen(__argv[3], "r");
       fscanf(filePointer, "%d", &fileNum);
       fclose(filePointer);
