@@ -32,7 +32,7 @@ int fibbonachiItera(int n)
    return num3;
 }
 
-int main(int argc, char *argv[])
+int main(int __argc, char* __argv[])
 {
    
    int i = 0;
@@ -42,25 +42,25 @@ int main(int argc, char *argv[])
    long long int fibbonachiNum = 0;
    int num1 = 0;
 
-   if (argc == 4)
+   if (__argc == 4)
    {
       
-      filePointer = fopen(argv[3], "r");
+      filePointer = fopen(__argv[3], "r");
       fscanf(filePointer, "%d", &fileNum);
       fclose(filePointer);
 
-      num1 = atoi(argv[1]);
+      num1 = atoi(__argv[1]);
       nthNum = num1 + fileNum;
 
     long long int *fibArray = calloc(nthNum,sizeof(long long int));
 
       
 
-         if (*argv[2] == 'i')
+         if (*__argv[2] == 'i')
          {
             fibbonachiNum = fibbonachiItera(nthNum - 1);
          }
-         else if (*argv[2] == 'r')
+         else if (*__argv[2] == 'r')
          {
             fibbonachiNum = fibbonachiRecurs(nthNum - 1, fibArray);
          }
