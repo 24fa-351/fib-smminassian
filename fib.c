@@ -75,9 +75,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
 
-int fibbonachiRecurs(int num)
+long long int fibbonachiRecurs(long long int num)
 {
    if (num == 0 || num == 1)
    {
@@ -91,9 +90,9 @@ int fibbonachiRecurs(int num)
 
 int fibbonachiItera(int n)
 {
-   int num1 = 0;
-   int num2 = 1;
-   int num3 = 0;
+   long long int num1 = 0;
+   long int num2 = 1;
+   long int num3 = 0;
    for (int i = 2; i <= n; i++)
    {
       if (n != 0)
@@ -113,16 +112,16 @@ int fibbonachiItera(int n)
 int main(int __argc, char *__argv[])
 {
    FILE *filePointer;
-   int fileNum = 0;
-   int nthNum = 0;
-   int fibbonachiNum = 0;
-   int num1 = 0;
+   long long int fileNum = 0;
+   long long int nthNum = 0;
+   long long int fibbonachiNum = 0;
+   long long int num1 = 0;
 
    if (__argc == 4)
    {
 
       filePointer = fopen(__argv[3], "r");
-      fscanf(filePointer, "%d", &fileNum);
+      fscanf(filePointer, "%lld", &fileNum);
       fclose(filePointer);
 
       num1 = atoi(__argv[1]);
@@ -138,7 +137,7 @@ int main(int __argc, char *__argv[])
       }
    }
 
-   printf("%d", fibbonachiNum);
+   printf("%lld", fibbonachiNum);
 
    return 0;
 }
