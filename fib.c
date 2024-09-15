@@ -76,7 +76,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-long long int fibbonachiRecurs(long long int num)
+unsigned long long fibbonachiRecurs(unsigned long long num)
 {
    if (num == 0 || num == 1)
    {
@@ -88,11 +88,11 @@ long long int fibbonachiRecurs(long long int num)
    }
 }
 
-long long int fibbonachiItera(int n)
+unsigned long long fibbonachiItera(unsigned long long n)
 {
-   long long int num1 = 0;
-   long long int num2 = 1;
-   long long int num3 = 0;
+   unsigned long long num1 = 0;
+   unsigned long long num2 = 1;
+   unsigned long long num3 = 0;
    for (int i = 2; i <= n; i++)
    {
      
@@ -108,16 +108,16 @@ long long int fibbonachiItera(int n)
 int main(int __argc, char *__argv[])
 {
    FILE *filePointer;
-   int fileNum = 0;
-   int nthNum = 0;
-   long long int fibbonachiNum = 0;
-   int num1 = 0;
+   unsigned long long fileNum = 0;
+   unsigned long long nthNum = 0;
+   unsigned long long fibbonachiNum = 0;
+   unsigned long long num1 = 0;
 
    if (__argc == 4)
    {
 
       filePointer = fopen(__argv[3], "r");
-      fscanf(filePointer, "%d", &fileNum);
+      fscanf(filePointer, "%llu", &fileNum);
       fclose(filePointer);
 
       num1 = atoi(__argv[1]);
@@ -132,7 +132,7 @@ int main(int __argc, char *__argv[])
          fibbonachiNum = fibbonachiRecurs(nthNum - 1);
       }
 
-        printf("%d", fibbonachiNum);
+        printf("%llu", fibbonachiNum);
    }
 
  
