@@ -14,10 +14,8 @@ unsigned long long fibbonachiRecurs(unsigned long long num, unsigned long long *
    fibValue = fibbonachiRecurs(num- 1, fibArray) + fibbonachiRecurs(num-2, fibArray);
    fibArray[num] = fibValue;
    }
-   else if(fibArray[num != 0]){
-   return fibArray[num];
 }
-}
+
 
 unsigned long long fibbonachiItera(unsigned long long n, unsigned long long *fibArray)
 {
